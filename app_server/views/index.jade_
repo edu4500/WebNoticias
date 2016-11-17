@@ -1,0 +1,48 @@
+extends layout
+block content
+  .navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        a.navbar-brand(href="#") Web Noticias
+      .form(role="search").navbar-form.navbar-left
+        .input-group
+          input(type="text" placeholder="Buscar").form-control
+          .input-group-btn
+            button(type="submit").btn.btn-defaul 
+              span.glyphicon.glyphicon-search
+
+  .container.body-container
+    .row
+      .col-xs-1
+        ul.affix.nav.nav-pills.nav-stacked 
+          each img in imgs
+            li
+              .caption.sr-only
+                p.text-center #{img}
+              a.thumbnail
+                img(src="/images/#{img}.png").img-responsive
+      .col-xs-4
+        .col-xs-12
+          form
+            .form-group
+              label.form-control Publicar Noticia 
+            .form-group
+              input(type="text" placeholder="#Titulo").form-control.sup
+              textarea(rows="4" placeholder="#Noticia")#noticia.form-control.cen
+              input(type="text" placeholder="#Lugar").form-control.inf
+            .form-group
+              button(type="submit").btn.btn-defaul.pull-left Publicar
+        
+        each noticia in noticias
+          .col-xs-12
+            .bs-callout.bs-callout-default 
+              h4 #{noticia.title}
+              p #{noticia.body}
+              p.small.text-right #{noticia.lugar}
+      .col-xs-7
+        each noticia in noticias
+          .col-xs-4
+            .bs-callout.bs-callout-primary 
+              h4 #{noticia.title}
+              p #{noticia.body}
+              p.small.text-right #{noticia.lugar}

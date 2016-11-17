@@ -1,0 +1,18 @@
+extends layout
+block content
+  .container
+    form(action="#" method="post").form-signin
+      h2.form-signin-heading Register
+      label Datos Personales
+      input(type="text" placeholder="Nombre" name="nombre").form-control#name.sup
+      input(type="text" placeholder="Apellido" name="apellido").form-control#sname.inf
+      label Fecha de Nacimiento
+      input(type="date" placeholder="fecha-nacimiento" name="fecha-nacimiento").form-control#date.only
+      label Usuario
+      input(type="text" placeholder="Usuario" name="usuario").form-control#usuario.sup
+      input(type="password" placeholder="Password" name="pass").form-control#pass.cen
+      input(type="password" placeholder="Repetir Password" name="rpass").form-control#pass.inf
+      button(type="submit").btn.btn-success.btn-block Registrate
+
+      
+      

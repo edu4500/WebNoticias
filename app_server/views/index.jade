@@ -1,0 +1,58 @@
+extends layout
+block content
+  
+  .container
+    .row
+      .col-xs-9
+        each noticia in noticias
+          .col-xs-4
+            .bs-callout.bs-callout-primary 
+              h4 #{noticia.title}
+              p #{noticia.body}
+              p.small.text-right #{noticia.lugar}
+      .col-xs-3
+        .col-xs-12
+          button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-primary.btn-lg.btn-block Publicar
+          .modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+            .modal-dialog(role="document")
+              .modal-content
+                .modal-header
+                  button(type="button" data-dismiss="modal" aria-label="Close").close
+                    span(aria-hidden="true") &times;
+                  h4.modal-title#myModalLabel Publicar Noticia 
+                .modal-body
+                  .form-horizontal
+                    .form-group
+                      label(for="titulo").col-sm-2.control-label Titulo
+                      .col-sm-7
+                        input(type="text" placeholder="#Titulo")#titulo.form-control
+                      .col-sm-3
+                        select.form-control.btn-block
+                          option(value="volvo") Politica
+                          option(value="volvo") Deportes
+                          option(value="volvo") Farandula
+                          option(value="volvo") Social
+                    .form-group
+                      label(for="lugar").col-sm-2.control-label Lugar
+                      .col-sm-10
+                        input.inf(type="text" placeholder="#Lugar")#lugar.form-control
+                    .form-group
+                      label(for="noticia").col-sm-2.control-label Detalle
+                      .col-sm-10  
+                        textarea(rows="4" placeholder="#Noticia")#noticia.form-control
+                    
+                .modal-footer
+                  button(type="button" data-dismiss="modal").btn.btn-default Close
+                  button(type="button").btn.btn-primary Publicar
+               
+          br
+        
+        each noticia in noticias
+          .col-xs-12
+            .bs-callout-relacionados.bs-callout-default-relacionados 
+              h4 #{noticia.title}
+              p.small.text-right #{noticia.lugar}
+    footer
+        .row
+          .col-xs-12
+            small &copy; Simon Holmes 2014
