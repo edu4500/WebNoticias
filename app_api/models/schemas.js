@@ -12,7 +12,7 @@ var usuario_schema = new Schema({
 
 var noticia_schema = new Schema({
 	titulo:String,
-	tipo:Number,
+	tipo:String,
 	fecha_hora:Date,
 	importancia:Number,
 	vistas:Number,

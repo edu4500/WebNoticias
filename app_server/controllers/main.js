@@ -1,15 +1,12 @@
 var Not = require('mongoose').model('Noticia');
-var noticias = [];
 
 module.exports.index = function(req, res, next) {
-  Not.find({},function(err,doc){
-  	noticias = doc;
+  Not.find({},function(err,noticias){
+  	res.render('index',{
+  		'title': 'WebNoticias', 
+  		'noticias' : noticias})
   });
-  res.render('index',
-  { 
-    'title': 'WebNoticias', 
-    'noticias' : noticias
-  });
+  
 }
 module.exports.login = function(req, res, next) {
   res.render('login', { 'title': 'Login' });

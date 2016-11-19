@@ -12,8 +12,9 @@ var sendJsonResponse = function(res, status, content) {
   res.json(content);
 };
 
+//modificar esta parte y mejorar
 router.post('/otro/:otroid',function(req,res){
-
+  console.log(req.body.tipo);
   var newNoticia = {
       titulo: req.body.titulo,
       tipo: req.body.tipo,
