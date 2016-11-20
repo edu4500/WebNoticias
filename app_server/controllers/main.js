@@ -4,7 +4,7 @@ module.exports.index = function(req, res, next) {
   Not.find({},function(err,noticias){
   	res.render('index',{
   		'title': 'WebNoticias', 
-  		'noticias' : []})
+  		'noticias' : noticias})
   });
   
 }
