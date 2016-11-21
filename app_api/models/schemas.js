@@ -10,6 +10,11 @@ var usuario_schema = new Schema({
 	password:String,
 });
 
+var comentario_schema = new Schema({
+	fecha_hora:Date,
+	detalle:String
+});
+
 var noticia_schema = new Schema({
 	titulo:String,
 	tipo:String,
@@ -18,7 +23,8 @@ var noticia_schema = new Schema({
 	vistas:Number,
 	lugar:String,
 	cuerpo:String,
-	usuario:{type:Schema.ObjectId,ref:'Usuario'}
+	usuario:{type:Schema.ObjectId,ref:'Usuario'},
+	cometarios:[comentario_schema]
 });
 
 mongoose.model("Usuario",usuario_schema);

@@ -4,8 +4,36 @@ block content
     .col-xs-8
       .bs-callout.bs-callout-primary 
         h4 #{noticia.titulo}
+        p importancia : #{noticia.importancia}
+        p vistas : #{noticia.vistas}
         p #{noticia.cuerpo}
         p.small.text-right #{noticia.lugar}
+      h5 Comentarios
+        
+      button(type="button" data-toggle="modal" data-target="#ModalPublicar").btn.btn-primary Comentar
+      .modal.fade#ModalPublicar(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+        .modal-dialog(role="document")
+          form(action="/api/noticias/#{noticia._id}/comentario" method="get").modal-content
+            .modal-header
+              button(type="button" data-dismiss="modal" aria-label="Close").close
+                span(aria-hidden="true") &times;
+              h4.modal-title#myModalLabel Comentar Noticia 
+            .modal-body
+              .form-horizontal
+                .form-group
+                  label(for="comentario").col-sm-2.control-label Detalle
+                  .col-sm-10  
+                    textarea(rows="4" placeholder="#Nuevo Comentario" name="comentario")#comentario.form-control
+            .modal-footer
+              button(type="button" data-dismiss="modal").btn.btn-default Close
+              button(type="submit").btn.btn-primary Comentar
+      br
+
+      each com in noticia.cometarios
+        .bs-callout-relacionados.bs-callout-primary 
+          p #{com.detalle}
+          p.small.text-right #{com.fecha_hora}
+
     .col-xs-4
       //-include include/form-new-noticia
     

@@ -31,13 +31,27 @@ router.post('/nuevo',function(req,res){
   );
 });
 
+router.get('/noticias/:noticiasid/comentario',function(req,res){
+  Not
+  .findById(req.params.noticiasid)
+  .select('cometarios')
+  .exec(function(err, noticia) {
+    noticia.cometarios.push({'fecha_hora' : new Date(),'detalle' : req.query.comentario});
+    noticia.save();
+    res.redirect('/api/noticias/'+req.params.noticiasid);
+    //sendJsonResponse(res, 200, noticia);//*/
+  });
+});
+
 router.get('/noticias/:noticiasid',function(req,res){
   Not
   .findById(req.params.noticiasid)
+  //.select('titulo cometarios')
   .exec(function(err, noticia) {
     res.render('noticia', { 'title': 'Noticia','noticia' :noticia });
-    //sendJsonResponse(res, 200, noticia);
-    //res.render('noticia',{'title':'noticia','noticia':noticia,'noticias':[]});
+    /*noticia.cometarios.push({'fecha_hora' : new Date(),'detalle' : "algo aqui"});
+    noticia.save();
+    sendJsonResponse(res, 200, noticia);//*/
   });
 });
 
