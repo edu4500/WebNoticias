@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-var Not = require('mongoose').model('Noticia');
-
 var Not = mongoose.model('Noticia');
 var Usu = mongoose.model('Usuario');
 
@@ -13,9 +11,9 @@ var sendJsonResponse = function(res, status, content) {
 };
 
 //modificar esta parte y mejorar
-router.post('/otro/:otroid',function(req,res){
-  console.log(req.body.tipo);
-  var newNoticia = {
+router.post('/nuevo',function(req,res){
+  Not.create(
+    {
       titulo: req.body.titulo,
       tipo: req.body.tipo,
       fecha:"10-2-2012",
@@ -24,29 +22,23 @@ router.post('/otro/:otroid',function(req,res){
       lugar: req.body.lugar,
       cuerpo: req.body.noticia,
       usuario:"582f740f87a78f0f57f61fbc"
-  }
-
-  Not.create(newNoticia,
-    function(err, location) {
+    },
+    function(err, location) 
+    {
       if (err) {sendJsonResponse(res, 400, err);}
-      else {
-        Not.find({},function(err,noticias){
-          res.render('index',{
-            'title': 'WebNoticias', 
-            'noticias' : noticias})
-        });
-      }
+      else {res.redirect('/');}
     }
   );
+});
 
-  /*
-  var id = req.params.otroid;
-  var variable = Loc
-    .findById(id)
-    .exec(function(err,otrosss){
-      sendJsonResponse(res,200,otrosss);
-    });//*/
-//  res.render('index', { title: 'Express' });
+router.get('/noticias/:noticiasid',function(req,res){
+  Not
+  .findById(req.params.noticiasid)
+  .exec(function(err, noticia) {
+    res.render('noticia', { 'title': 'Noticia','noticia' :noticia });
+    //sendJsonResponse(res, 200, noticia);
+    //res.render('noticia',{'title':'noticia','noticia':noticia,'noticias':[]});
+  });
 });
 
 module.exports = router;

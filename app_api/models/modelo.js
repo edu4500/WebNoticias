@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
 //para cambair el servidor de la base de datos
-var dbURI  = 'mongodb://dbuser:dbpassword@ds159217.mlab.com:59217/heroku_xbnc3sf3';
+var dbURI  = 'mongodb://dbuser:dbpassword@ds159237.mlab.com:59237/webnoticias';
 //var dbURI = 'mongodb://localhost/prueba';
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGOLAB_URI;
