@@ -1,6 +1,7 @@
 var Not = require('mongoose').model('Noticia');
 
 module.exports.index = function(req, res, next) {
+
   Not.find({},function(err,noticias){
     	res.render('index',{
   		'title': 'WebNoticias', 
@@ -23,4 +24,4 @@ module.exports.register = function(req, res, next) {
 module.exports.about = function(req, res, next) {
   res.render('about', { 'title': 'About' });
 }
-
+ 
