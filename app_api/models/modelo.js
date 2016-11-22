@@ -4,7 +4,7 @@ var gracefulShutdown;
 //var dbURI  = 'mongodb://dbuser:dbpassword@ds159237.mlab.com:59237/webnoticias';
 var dbURI = 'mongodb://localhost/webnoticias';
 if (process.env.NODE_ENV === 'production') {
-    dbURI = process.env.MONGOLAB_URI;
+    dbURI = process.env.MONGO_URI;
 }
 
 mongoose.connect(dbURI);

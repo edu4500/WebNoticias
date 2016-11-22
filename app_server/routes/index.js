@@ -6,12 +6,12 @@ var mainCtrl = require('../controllers/main');
 /* GET home page. */
 router.get('/',mainCtrl.index);
 
-/*/***************Categorias****************
+/****************Categorias*****************/
 router.get('/pol',mainCtrl.pol);
 router.get('/dep',mainCtrl.dep);
 router.get('/far',mainCtrl.far);
 router.get('/soc',mainCtrl.soc);
-**************Categorias*****************/
+/**************Categorias*****************/
 
 router.get('/login',mainCtrl.login);
 router.get('/register',mainCtrl.register);
