@@ -3,16 +3,17 @@ var router = express.Router();
 var mainCtrl = require('../controllers/main');
 
 
-/* GET home page. */
+// GET home page.
 router.get('/',mainCtrl.index);
+router.get('/noticias/tipo/:tipoid',mainCtrl.getNoticiaTipo);
 
-/****************Categorias*****************/
-router.get('/pol',mainCtrl.pol);
-router.get('/dep',mainCtrl.dep);
-router.get('/far',mainCtrl.far);
-router.get('/soc',mainCtrl.soc);
-/**************Categorias*****************/
 
+router.get('/noticias/new', mainCtrl.newNoticia );
+router.get('/noticias/:noticiasid/comentario', mainCtrl.addComentario);
+router.get('/noticias/:noticiasid', mainCtrl.viewNoticia);
+
+
+//otras paginas
 router.get('/login',mainCtrl.login);
 router.get('/register',mainCtrl.register);
 router.get('/about',mainCtrl.about);

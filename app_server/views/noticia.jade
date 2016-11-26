@@ -13,7 +13,7 @@ block content
       button(type="button" data-toggle="modal" data-target="#ModalPublicar").btn.btn-primary Comentar
       .modal.fade#ModalPublicar(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
         .modal-dialog(role="document")
-          form(action="/api/noticias/#{noticia._id}/comentario" method="get").modal-content
+          form(action="/noticias/#{noticia._id}/comentario" method="get").modal-content
             .modal-header
               button(type="button" data-dismiss="modal" aria-label="Close").close
                 span(aria-hidden="true") &times;

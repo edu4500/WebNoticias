@@ -2,7 +2,7 @@
   button(type="button" data-toggle="modal" data-target="#myModal").btn.btn-primary.btn-lg.btn-block Publicar
   .modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
     .modal-dialog(role="document")
-      form(action="/api/nuevo" method="post").modal-content
+      form(action="/noticias/new" method="get").modal-content
         .modal-header
           button(type="button" data-dismiss="modal" aria-label="Close").close
             span(aria-hidden="true") &times;

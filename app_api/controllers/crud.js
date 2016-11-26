@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 var Not = mongoose.model('Noticia');
 var Usu = mongoose.model('Usuario');
 
+var sendJsonResponse = function(res, status, content) {
+  res.status(status);
+  res.json(content);
+};
+
 module.exports.new_noticia = function(req,res){
   Not.create(
     {
