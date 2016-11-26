@@ -3,7 +3,7 @@ var apioptions = {
   server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-  apioptions.server = "https://getting-mean-loc8r.herokuapp.com";
+  apioptions.server = "https://app20101887.herokuapp.com";
 }
 
 module.exports.index = function(req, res, next) {
