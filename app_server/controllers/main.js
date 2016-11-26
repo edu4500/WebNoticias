@@ -1,16 +1,16 @@
 var request = require('request');
-var apiOptions = {
+var apioptions = {
   server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = "https://getting-mean-loc8r.herokuapp.com";
+  apioptions.server = "https://getting-mean-loc8r.herokuapp.com";
 }
 
 module.exports.index = function(req, res, next) {
   var requestOptions, path;
   path = '/api/noticias';
   requestOptions = {
-    url : apiOptions.server + path,
+    url : apioptions.server + path,
     method : "GET",
     json : {},
     qs : {}
@@ -42,7 +42,7 @@ module.exports.getNoticiaTipo = function(req,res,next){
   path = '/api/noticias/tipo/' + req.params.tipoid;
   console.log("-----------  "+path);
   requestOptions = {
-    url : apiOptions.server + path,
+    url : apioptions.server + path,
     method : "GET",
     json : {},
     qs : {}
@@ -94,7 +94,7 @@ module.exports.addComentario = function(req,res,next){
   var requestoptions, path;
   path = '/api/noticia/'+req.params.noticiasid+'/comentario';
   requestOptions = {
-    url : apiOptions.server + path,
+    url : apioptions.server + path,
     method : "post",
     json : {
       'comentario' : req.query.comentario
@@ -120,7 +120,7 @@ module.exports.viewNoticia = function(req,res,next){
   path = '/api/noticia/' + req.params.noticiasid;
   console.log("------------------------- :"+path);
   requestOptions = {
-    url : apiOptions.server + path,
+    url : apioptions.server + path,
     method : "GET",
     json : {},
     qs : {}
