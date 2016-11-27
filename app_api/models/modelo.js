@@ -3,7 +3,7 @@ var gracefulShutdown;
 //para cambair el servidor de la base de datos
 //var dbURI  = 'mongodb://dbuser:dbpassword@ds159237.mlab.com:59237/webnoticias';
 var dbURI = 'mongodb://localhost/webnoticias';
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'produccion') {
     dbURI = process.env.MONGO_URI;
 }
 
