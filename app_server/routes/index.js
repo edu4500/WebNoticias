@@ -4,8 +4,12 @@ var mainCtrl = require('../controllers/main');
 
 
 // GET home page.
+
 router.get('/',mainCtrl.index);
-router.get('/noticias/tipo/:tipoid',mainCtrl.getNoticiaTipo);
+router.get('/politica',mainCtrl.getNoticiaTipo);
+router.get('/deportes',mainCtrl.getNoticiaTipo);
+router.get('/farandula',mainCtrl.getNoticiaTipo);
+router.get('/social',mainCtrl.getNoticiaTipo);
 
 
 router.get('/noticias/new', mainCtrl.newNoticia );

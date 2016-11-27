@@ -37,16 +37,21 @@ module.exports.about = function(req, res, next) {
   res.render('about', { 'title': 'About' });
 }
 
+var last_sub_path = function(path){
+  return path.substring(path.lastIndexOf('/')+1,path.length);
+}
+
 module.exports.getNoticiaTipo = function(req,res,next){
   var requestOptions, path;
-  path = '/api/noticias/tipo/' + req.params.tipoid;
-  console.log("-----------  "+path);
+  path = '/api/noticias/tipo';
   requestOptions = {
     url : apioptions.server + path,
     method : "GET",
     json : {},
-    qs : {}
+    qs : {tipoid: last_sub_path(req.path)}
   };
+
+
   request(
     requestOptions,
     function(err, response, body) {
@@ -56,7 +61,7 @@ module.exports.getNoticiaTipo = function(req,res,next){
         'noticias' :body
       });
     }
-  );
+  );//*/
 }
 
 module.exports.newNoticia = function(req,res,next){
@@ -118,7 +123,6 @@ module.exports.addComentario = function(req,res,next){
 module.exports.viewNoticia = function(req,res,next){
   var requestOptions, path;
   path = '/api/noticia/' + req.params.noticiasid;
-  console.log("------------------------- :"+path);
   requestOptions = {
     url : apioptions.server + path,
     method : "GET",

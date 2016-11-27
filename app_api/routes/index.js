@@ -13,8 +13,8 @@ var comentario = require('../controllers/comentario');
 //noticia
 router.post( '/noticia' , noticia.createNoticia );
 router.get( '/noticias', noticia.getNoticias );
-router.get( '/noticias/tipo/:tipoid', noticia.getNoticiasTipo );
-router.get( '/noticias/frace/:fraceid', noticia.getNoticiasFrace );
+router.get( '/noticias/tipo', noticia.getNoticiasTipo );
+router.get( '/noticias/frace', noticia.getNoticiasFrace );
 router.get( '/noticia/:noticiaid', noticia.getNoticia );
 
 //comentario

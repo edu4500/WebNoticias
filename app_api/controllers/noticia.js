@@ -22,7 +22,7 @@ var esTipo = function(tipo){
 }
 
 module.exports.getNoticiasTipo = function(req,res){
-  var tipo = req.params.tipoid;
+  var tipo = req.query.tipoid;
   if(!esTipo(tipo)){
     sendJsonResponse(res,409,{error : 'tipo invalido'});}
   else{
@@ -50,9 +50,11 @@ module.exports.getNoticia = function(req,res){
     if(err){sendJsonResponse(res,400,err);}
     else{
       if(noticia){
-        sendJsonResponse(res,200,noticia);}
-      else{
-        sendJsonResponse(res,401,{error : 'noticia no existente'})}
+        sendJsonResponse(res,200,noticia);
+        noticia.vistas += 1;
+        noticia.save();
+      }
+      else{sendJsonResponse(res,401,{error : 'noticia no existente'})}
     }
   });
 }
