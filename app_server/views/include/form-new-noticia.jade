@@ -32,7 +32,11 @@
           button(type="submit").btn.btn-primary Publicar
   br
 
-each not in noticias
+.col-xs-12(ng-repeat="not in noticias")
+  .bs-callout-relacionados.bs-callout-default-relacionados 
+    h4 {{not.titulo}}
+    small.text-right {{not.lugar}}
+//-each not in noticias
   .col-xs-12
     .bs-callout-relacionados.bs-callout-default-relacionados 
       h4 #{not.titulo}

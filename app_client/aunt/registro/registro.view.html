@@ -1,0 +1,17 @@
+<navigator></navigator>
+<div>
+  <form class="form-signin" ng-submit="vm.onSubmit()" >
+    <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+    <h2 class="form-signin-heading">Register</h2>
+    <label>Name</label>
+    <input class="form-control" type="text" placeholder="Nombre" name="nombre" id="name" ng-model="vm.credentials.name"/>
+    <br>
+
+    <label>Usuario</label>
+    <input class="form-control sup" type="email" placeholder="Email" name="email" id="email" ng-model="vm.credentials.email"/>
+    <input class="form-control cen" type="password" placeholder="Password" name="pass" id="pass" ng-model="vm.credentials.password"/>
+    <input class="form-control inf" type="password" placeholder="Repetir Password" name="rpass" id="pass" ng-model="vm.compassword"/>
+    <button class="btn btn-success btn-block" type="submit">Registrate</button>
+  </form>
+</div>
+<footer-generic></footer-generic>

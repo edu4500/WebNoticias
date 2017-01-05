@@ -29,7 +29,7 @@ html(ng-app='myApp')
                   span.glyphicon.glyphicon-search
           .navbar-left
             ul.nav.navbar-nav
-              li.active: a(href="/") Inicio
+              li: a(href="/") Inicio
               li: a(href="/politica") Politica
               li: a(href="/deportes") Deportes
               li: a(href="/farandula") Farandula
@@ -38,9 +38,9 @@ html(ng-app='myApp')
             ul.nav.navbar-nav
               li: a(href="/about") About
     .container
-
-      block content
-        
+      div(ng-view)
+      //-block content
+      
       footer
         .row
           .col-xs-12
@@ -51,5 +51,3 @@ html(ng-app='myApp')
     script(src='/javascripts/MyApp.js')
     script(src='/javascripts/jquery-3.1.1.min.js')
     script(src='/javascripts/bootstrap.min.js')
-
-

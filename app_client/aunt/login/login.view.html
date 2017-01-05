@@ -1,0 +1,14 @@
+<navigator></navigator>
+
+<div>
+	<form ng-submit="vm.onSubmit()" class="form-signin" >
+		<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+		<h2 class="form-signin-heading">Login</h2>
+		<input class="form-control sup" type="email" placeholder="email" name="email" id="email" ng-model="vm.credentials.email"/>
+		<input class="form-control inf" type="password" placeholder="Password" name="pass" id="pass" ng-model="vm.credentials.password"/>
+		<button class="btn btn-success btn-block" type="submit">Ingresar</button><br/>
+		<h5>Si no tienes una cuenta registrate</h5><a class="btn btn-primary btn-block" href="/#/registro">Registrate</a>
+	</form>
+</div>
+
+<footer-generic></footer-generic>

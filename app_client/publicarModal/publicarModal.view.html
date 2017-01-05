@@ -1,0 +1,49 @@
+<form  role="form" ng-submit="vm.onSubmit()" class="modal-content">
+	<div class="modal-header">
+		<button type="button" ng-click="vm.modal.cancel()" aria-label="Close" class="close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 id="myModalLabel" class="modal-title">Publicar Noticia </h4>
+	</div>
+	<div class="modal-body">
+	<div role="alert" ng-show="vm.formError" class="alert alert-danger">{{vm.formError }}</div>
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label for="titulo" class="col-sm-2 control-label">Titulo</label>
+				<div class="col-sm-7">
+					<input type="text"  placeholder="#Titulo" name="titulo" id="titulo" ng-model="vm.formData.titulo" required="required" class="form-control">
+				</div>
+				<div class="col-sm-3">
+					<select name="tipo" ng-model="vm.formData.tipo" class="form-control btn-block">
+						<option value="politica">Politica</option>
+						<option value="deportes">Deportes</option>
+						<option value="farandula">Farandula</option>
+						<option value="social">Social</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="lugar" class="col-sm-2 control-label">Lugar</label>
+				<div class="col-sm-10">
+					<input type="text" placeholder="#Lugar" name="lugar" id="lugar" ng-model="vm.formData.lugar" required="required" class="inf form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="noticia" class="col-sm-2 control-label">Detalle</label>
+				<div class="col-sm-10">
+					<textarea rows="4" placeholder="#Noticia" name="noticia" id="noticia" ng-model="vm.formData.noticia" required="required" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="imgform" class="col-sm-2 control-label">Foto</label>
+				<div class="col-sm-10">
+					<input type="file" file-model="vm.formData.img" name="imgform" id="imgform" ng-model="vm.formData.lugar" class="inf form-control">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" ng-click="vm.modal.cancel()" class="btn btn-default">Close</button>
+		<button type="submit" class="btn btn-primary">Publicar</button>
+	</div>
+</form>

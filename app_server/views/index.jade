@@ -1,14 +1,23 @@
 extends layout
 block content  
   .row
+
     .col-xs-9
-      each not in noticias
+      .col-xs-4(ng-repeat="not in noticias")
+        .bs-callout.bs-callout-primary 
+          h4 {{not.titulo}}
+          p {{not.cuerpo}}
+          p.small.text-right {{not.lugar}}
+          a(href="/noticias/{{not._id}}").btn.btn-info.btn-xs Mas  
+        
+      //-each not in noticias
         .col-xs-4
           .bs-callout.bs-callout-primary 
             h4 #{not.titulo}
             p #{not.cuerpo}
             p.small.text-right #{not.lugar}
-            a(href="/noticias/#{not._id}").btn.btn-info.btn-xs Mas   
+            a(href="/noticias/#{not._id}").btn.btn-info.btn-xs Mas
+
     .col-xs-3
       include include/form-new-noticia
     

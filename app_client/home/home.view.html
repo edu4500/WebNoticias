@@ -1,0 +1,22 @@
+<navigator></navigator>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-9">
+			<div ng-repeat="not in vm.noticias" class="col-xs-4">
+				<div class="bs-callout bs-callout-primary">
+					<h4>{{not.titulo}}</h4>
+					<p>{{not.cuerpo  | limitTo:100 }}  ...</p>
+					<p class="small text-right">{{not.lugar }}</p>
+					<a href="/#/noticia/{{not._id}}" class="btn btn-info btn-xs">Mas  </a>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="col-xs-12">
+				<button ng-show="vm.isLoggedIn" ng-click="vm.popupPublForm()" class="btn btn-primary btn-lg btn-block">Publicar</button>
+				<button ng-hide="vm.isLoggedIn" disabled="disabled" class="btn btn-primary btn-lg btn-block">Publicar</button>
+			</div>
+		</div>
+	</dir>
+</div>
+<footer-generic></footer-generic>

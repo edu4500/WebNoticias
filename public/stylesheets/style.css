@@ -11,7 +11,7 @@ textarea{
   resize: none;
 }
 .espacio{
-  padding:; 20px;
+  padding: 20px;
 }
 .bs-callout-relacionados {
     margin-bottom: 0px;
@@ -35,12 +35,29 @@ textarea{
 .bs-callout-relacionados+.bs-callout-relacionados {
     margin-top: -5px;
 }
-.bs-callout-default-relacionados {
-    border-left-color: #777;
+
+
+.bs-callout-detalle {
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #f0f0f0;
+    border-left-width: 5px;
+    border-radius: 3px;
+    background-color: #fff;
 }
-.bs-callout-default-relacionados h4 {
-    color: #777;
+.bs-callout-detalle h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
 }
+.bs-callout-detalle p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout-detalle code {
+    border-radius: 3px;
+}
+
+
+
 .bs-callout {
     padding: 15px;
     margin: 15px 0;
@@ -48,6 +65,7 @@ textarea{
     border-left-width: 5px;
     border-radius: 3px;
     background-color: #fff;
+    height: 200px;
 }
 .bs-callout h4 {
     margin-top: 0;

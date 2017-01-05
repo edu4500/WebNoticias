@@ -1,1 +1,70 @@
-<p> esto es un ejemplo</p>
+<div class="row">
+    <div class="col-xs-9">
+        <div ng-repeat="not in noticias" class="col-xs-4">
+            <div class="bs-callout bs-callout-primary">
+                <h4>{{not.titulo}}</h4>
+                <p>{{not.cuerpo}}</p>
+                <p class="small text-right">{{not.lugar}}</p>
+                <a href="/noticias/{{not._id}}" class="btn btn-info btn-xs">Mas  </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="col-xs-12">
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg btn-block">Publicar</button>
+            <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade">
+                <div role="document" class="modal-dialog">
+                    <form action="/noticias/new" method="get" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 id="myModalLabel" class="modal-title">Publicar Noticia </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="titulo" class="col-sm-2 control-label">Titulo</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" placeholder="#Titulo" name="titulo" id="titulo" class="form-control">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select name="tipo" class="form-control btn-block">
+                                            <option value="politica">Politica</option>
+                                            <option value="deportes">Deportes</option>
+                                            <option value="farandula">Farandula</option>
+                                            <option value="social">Social</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lugar" class="col-sm-2 control-label">Lugar</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="#Lugar" name="lugar" id="lugar" class="inf form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="noticia" class="col-sm-2 control-label">Detalle</label>
+                                    <div class="col-sm-10">
+                                        <textarea rows="4" placeholder="#Noticia" name="noticia" id="noticia" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                            <button type="submit" class="btn btn-primary">Publicar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div ng-repeat="not in noticias" class="col-xs-12">
+            <div class="bs-callout-relacionados bs-callout-default-relacionados">
+                <h4>{{not.titulo}}</h4>
+                <small class="text-right">{{not.lugar}}</small>
+            </div>
+        </div>
+    </div>
+</div>

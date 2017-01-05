@@ -1,0 +1,42 @@
+<navigator></navigator>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+
+      <div class="bs-callout-detalle bs-callout-primary"> 
+        <h4>{{vm.noticia.titulo}}</h4>
+        <p>importancia : {{vm.noticia.importancia}}</p>
+        <p>vistas : {{vm.noticia.vistas}}</p>
+        <p>{{vm.noticia.cuerpo}}</p>
+        <img src="{{vm.noticia.URLimg}}">
+        <p class="small text-right">{{vm.noticia.lugar}}</p>
+      </div>
+
+      <button ng-show="vm.isLoggedIn" ng-click="vm.popupPublForm()" class="btn btn-primary">Comentar</button>
+      <button ng-hide="vm.isLoggedIn" disabled="disabled" class="btn btn-primary">Logeate para comentar</button>
+
+      <h5>Comentarios</h5>
+
+      <div ng-repeat="com in vm.noticia.cometarios"> 
+        <div class="bs-callout-relacionados bs-callout-primary"> 
+          <div class="row">
+            <div class="col-xs-9">
+              <p>{{com.detalle}}</p>
+            </div>
+            <div class="col-xs-3">
+              <p class="small text-right">Comentado por </p>
+              <p class="small text-right">{{com.usuario}}</p>
+              <p class="small text-right">{{com.fecha_hora | date}}</p>    
+            </div>
+          </div>
+
+          
+          
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-4"></div>
+  </div>
+</div>
+<footer-generic></footer-generic>
